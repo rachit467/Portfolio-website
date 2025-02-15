@@ -38,7 +38,7 @@
     <!-- About Me -->
     <section id="about" class="about">
         <div class="about-content">
-          <img src="profile.jpg" alt="Profile Picture">
+            <!-- <img src="profile.jpg" alt="Your Photo" class="profile-pic"> -->
             <div class="about-text">
                 <h2>About Me</h2>
                 <p>I'm a passionate front-end developer with a strong foundation in Python and data science. I love building interactive and visually appealing web applications and exploring data-driven insights.</p>
@@ -146,15 +146,26 @@
     </section>
     <!-- Contact -->
     <section id="contact" class="contact">
-        <h2>Contact</h2>
-        <br>
-        <form action="#" class="contact-form">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" required></textarea>
-            <button type="submit" class="btn">Send</button>
-        </form>
-    </section>
+      <h2>Contact</h2>
+      <br>
+      <form action="https://formsubmit.co/tachamorachit7@gmail.com" method="POST" class="contact-form">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+          <textarea name="message" placeholder="Your Message" required></textarea>
+  
+          <!-- Anti-Spam Hidden Field -->
+          <input type="text" name="_honey" style="display: none;">
+  
+          <!-- Redirect After Submission -->
+          <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you">
+  
+          <!-- Disable Captcha -->
+          <input type="hidden" name="_captcha" value="false">
+  
+          <button type="submit" class="btn">Send</button>
+      </form>
+  </section>
+  
 
     <!-- Footer -->
     <footer>
