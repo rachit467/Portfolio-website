@@ -29,7 +29,7 @@ button {
 
 /* Header */
 header {
-    background: linear-gradient(to right, #707070, #623ceb);
+    background: linear-gradient(to right, #32188cec, #623ceb);
     color: #fff;
     padding: 1rem 2rem;
     width: 100%;
@@ -43,6 +43,7 @@ header {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
+    
 }
 
 .nav-links {
@@ -74,7 +75,7 @@ header {
     align-items: center;
     text-align: center;
     height: 100vh;
-    background: linear-gradient(to right, #333, #1f1349);
+    background: linear-gradient(to right, #32188cec, #1f1349);
     color: #fff;
     padding: 2rem;
 }
@@ -119,30 +120,48 @@ header {
     to { opacity: 1; }
 }
 
-.hero-buttons .btn {
-    padding: 0.8rem 1.5rem;
-    margin: 0 0.5rem;
-    background: #fff;
-    color: #333;
-    border: none;
-    border-radius: 5px;
-    transition:  0.3s ease, transform 0.3s ease;
-}
-
-.hero-buttons .btn:hover {
-    background: #f39c12;
-    color: #fff;
-    transform: scale(1.1);
-}
+.btn {
+    display: inline-block;
+    padding: 0.9rem 1.8rem;
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    border: 3px solid #33b0f3;
+    cursor: pointer;
+    position: relative;
+    background-color: #32188cec;
+    text-decoration: none;
+    overflow: hidden;
+    z-index: 1;
+    font-family: inherit;
+   }
+   
+   .btn::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #33b0f3;
+    transform: translateX(-100%);
+    transition: all .3s;
+    z-index: -1;
+   }
+   
+   .btn:hover::before {
+    transform: translateX(0);
+   }
 
 /* About Section */
 .about {
+    
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 2rem;
     padding: 4rem 2rem;
-    background: linear-gradient(to right, #333, #1f1349);
+    background: linear-gradient(to right, #32188cec, #1f1349);
 }
 
 .profile-pic {
@@ -176,7 +195,7 @@ header {
   overflow: hidden;
   border: 1px solid #c5c5c5;
   border-radius: 12px;
-  background: linear-gradient(to right, #333, #1f1349);
+  background: linear-gradient(to right, #32188cec, #1f1349);
   backdrop-filter: blur(8px);
   min-width: 344px;
 }
@@ -206,7 +225,7 @@ header {
   padding-inline: 12px;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
-  background: linear-gradient(to right, #333, #1f1349);
+  background: linear-gradient(to right, #32188cec, #1f1349);
 }
 .title {
   display: flex;
@@ -412,7 +431,7 @@ body.dark-mode .projects {
 /* Skills Section */
 .skills {
     padding: 4rem 2rem;
-    background: linear-gradient(to right, #333, #1f1349);
+    background: linear-gradient(to right, #32188cec, #1f1349);
     text-align: center;
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
@@ -450,12 +469,12 @@ body.dark-mode .projects {
 
 .skill:hover {
     transform: scale(1.1);
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 4px 10px #33b0f3;
 }
 /* Contact Section */
 .contact {
     padding: 4rem 2rem;
-    background: linear-gradient(to right, #333, #1f1349);
+    background: linear-gradient(to right, #32188cec, #1f1349);
     text-align: center;
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
@@ -473,26 +492,72 @@ body.dark-mode .projects {
 .contact-form input,
 .contact-form textarea {
     padding: 0.8rem;
-    border: 1px solid #ddd;
+    border: 3px solid #2d90f3;
     border-radius: 5px;
     font-size: 1rem;
+    background-color: #e5e2e2;
 }
 
 .contact-form button {
-    padding: 0.8rem;
-    background: #6a11cb;
-    color: #fff;
+    font-family: inherit;
+    font-size: 20px;
+    background: royalblue;
+    color: white;
+    padding: 0.7em 1em;
+    padding-left: 0.9em;
+    display: flex;
+    align-items: center;
     border: none;
-    border-radius: 5px;
-    font-size: 1rem;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.2s;
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  
+  .contact-form button span {
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.3s ease-in-out;
+    white-space: nowrap;
 }
+  
+  .contact-form button svg {
 
-.contact-form button:hover {
-    background: #2575fc;
-    transform: scale(1.1);
-}
+    display: block;
+    transform-origin: center center;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .contact-form button:hover .svg-wrapper {
+    animation: fly-1 0.6s ease-in-out infinite alternate;
+  }
+  
+  .contact-form button:hover svg {
+    transform: translateX(1.2em) rotate(45deg) scale(1.1);
+    color: #1f1349;
+  }
+  
+  .contact-form button:hover span {
+    transform: translateX(5em);
+    color: #1f1349;
+  }
+  
+  .contact-form button:active {
+    transform: scale(0.95);
+  }
+  
+  @keyframes fly-1 {
+    from {
+      transform: translateY(0.1em);
+    }
+  
+    to {
+      transform: translateY(-0.1em);
+    }
+  }
+  
 
 /* Footer */
 footer {
@@ -500,6 +565,99 @@ footer {
     padding: 1rem;
     background: #333;
     color: #fff;
+
+.tooltip-container {
+    --background: #4132c9;
+    --support-size: 3px;
+    --tooltip-radius: 10px 10px 10px 0;
+    --outline-border-color: #1ed9f1;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 0.7em 1.8em;
+    color:white;
+    border: solid 2px var(--background);
+  }
+  
+  .tooltip-container::before {
+    content: "";
+    display: inline-block;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    transition: all 0.5s linear;
+    outline: 3px solid transparent;
+    background: var(--background);
+  }
+  .tooltip-container:hover {
+    color: #4132c9;
+    background-color: #1ca0f5;
+  }
+  .tooltip-container:hover:before {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    outline-offset: 5px;
+    outline-color: var(--outline-border-color);
+  }
+  .tooltip {
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    left: 50%;
+    transform: translateX(-5%);
+    padding: 0.3em 0.6em;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s;
+    background: var(--background);
+    border-radius: var(--tooltip-radius);
+    color: white;
+    box-shadow: 3px 3px 0px var(--outline-border-color);
+  }
+  
+  .tooltip::after {
+    content: "See you !👋";
+    display: inline-block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--background);
+    text-align: center;
+    border-radius: var(--tooltip-radius);
+  }
+  .tooltip::before {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    border-style: solid;
+    border-width: 10px;
+    left: 0;
+    transform: translateX(-50%);
+    border-color: transparent var(--background) var(--background) transparent;
+    box-shadow: 0px 3px 0px var(--outline-border-color);
+  }
+  
+  .tooltip-container:hover .tooltip::after {
+    animation: hidden 0.5s 1.5s linear forwards;
+  }
+  
+  .tooltip-container:hover .tooltip {
+    top: calc(-100% - var(--support-size) * 0.5);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    animation: shake 0.5s 1s linear;
+    transition: all 0.3s 0.5s;
+  }
 }
 
 footer .social-icons a {
@@ -539,14 +697,14 @@ section.fade-in {
     align-items: center;
     text-align: center;
     height: 100vh;
-    background: linear-gradient(to right, #333, #1f1349);
+    background: linear-gradient(to right, #32188cec, #1f1349);
     color: #fff;
     padding: 2rem;
     transition: background-color 0.3s ease;
 }
 
 body.dark-mode .hero {
-    background: linear-gradient(to right, #333, #1f1349);
+    background: linear-gradient(to right, #32188cec, #1f1349);
 }
 
 .hero-content h1 {
@@ -574,3 +732,57 @@ section.fade-in {
 
 
 
+@keyframes hidden {
+    50% {
+      transform: translate(-50%, -50%) scale(0.5);
+      background-color: #1ca0f5;
+    }
+    100% {
+      transform: translate(0, -50%) scale(0.5);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes shake {
+    0%,
+    40%,
+    80% {
+      transform: translateX(-10%);
+    }
+    20%,
+    60%,
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  .st2 {
+    fill: #f9c8a7;
+  }
+  .st3 {
+    fill: #ff9e97;
+  }
+  .st6 {
+    fill: #d72e48;
+  }
+  .st7 {
+    fill: #ffffff;
+  }
+  .st8 {
+    fill: #ff8d7f;
+  }
+  .st10 {
+    fill: #3d3d3b;
+  }
+  .st11 {
+    fill: #1ca0f5;
+  }
+  .st12 {
+    opacity: 0.2;
+  }
+  .st14 {
+    fill: #b7b7b7;
+  }
+  .st15 {
+    fill: #ead9cf;
+  }
