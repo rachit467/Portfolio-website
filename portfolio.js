@@ -8,7 +8,7 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     });
 });
 
-// Intersection Observer for Fade-In Effect
+// Intersection and Observer for Fade-In Effect
 const sections = document.querySelectorAll('section');
 
 const options = { threshold: 0.1 };
