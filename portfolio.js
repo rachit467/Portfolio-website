@@ -21,7 +21,7 @@ const observer = new IntersectionObserver((entries) => {
             entry.target.classList.remove('fade-in');
         }
     });
-}, options);
+}, { threshold: 0.1 });
 
 sections.forEach(section => {
     observer.observe(section);
