@@ -7,7 +7,7 @@
     --first-color: #5361ff;
     --white-color: #fafaff;
     --dark-color: #2a3b47;
-    --text-color: #697477;
+    --text-color: #828f92;
 
     --body-font: 'Montserrat', sans-serif;
     --big-font-size: 6.25rem;
@@ -180,8 +180,30 @@ img { max-width: 100%; height: auto; display: block; }
 .about-subtitle { font-size: var(--h2-font-size); color: var(--first-color); margin-bottom: var(--mb1); }
 .about-text { margin-bottom: var(--mb4); }
 .about-profession { display: block; margin-bottom: var(--mb4); }
-.about-social-icon { font-size: 1.4rem; margin: 0 var(--mb1); }
-.about-social-icon:hover { color: var(--first-color); }
+.about-social-icon {
+  font-size: 1.8rem;
+  margin: 0 var(--mb1);
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* LinkedIn Glow */
+.about-social-icon[href*="linkedin"]:hover {
+  color: #0077B5;
+  text-shadow: 0 0 8px #0077B5, 0 0 12px #0077B5;
+}
+
+/* GitHub Glow */
+.about-social-icon[href*="github"]:hover {
+  color: #333;
+  text-shadow: 0 0 8px #333, 0 0 12px #333;
+}
+
+/* Instagram Glow */
+.about-social-icon[href*="instagram"]:hover {
+  color: #E1306C;
+  text-shadow: 0 0 8px #E1306C, 0 0 12px #E1306C;
+}
+
 
 
 /*SKILLS*/
@@ -268,7 +290,6 @@ img { max-width: 100%; height: auto; display: block; }
 .footer-social { font-size: 1.4rem; margin-right: var(--mb1); }
     .footer-social:hover { color: var(--first-color); }
     
-    /* From Uiverse.io by neerajbaniwal */ 
 .btn-shine {  
   top: 50%;
   left: 50%;
@@ -331,6 +352,52 @@ img { max-width: 100%; height: auto; display: block; }
   100% {
     background-position: 180px;
   }
+}
+
+.go-top-wrapper {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.go-top-wrapper.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.progress-ring {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  transform: rotate(-90deg);
+}
+
+#goTopBtn {
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  z-index: 2;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+
+}
+
+#goTopBtn:hover {
+  box-shadow: 0 0 10px 4px rgba(106, 17, 203, 0.6), 0 0 20px 8px rgba(37, 117, 252, 0.4);
+  transform: scale(1.1);
 }
 
 

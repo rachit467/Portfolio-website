@@ -76,55 +76,35 @@ function scrollActive() {
     })
 }
 // Create the button
-const backToTop = document.createElement('button');
-backToTop.innerHTML = '↑';
-backToTop.setAttribute('aria-label', 'Back to top');
-backToTop.className = 'back-to-top-btn';
-document.body.appendChild(backToTop);
+const btn = document.getElementById("goTopBtn");
+const wrapper = document.getElementById("goTopWrapper");
+const circle = document.querySelector(".progress-ring__circle");
+const radius = circle.r.baseVal.value;
+const circumference = 2 * Math.PI * radius;
 
-// Add styling via JavaScript
-const style = document.createElement('style');
-style.textContent = `
-.back-to-top-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 40px;
-  height: 40px;
-  font-size: 20px;
-  color: white;
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
-  border: none;
-  border-radius: 50%;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  cursor: pointer;
-  opacity: 0;
-  transform: scale(0.8);
-  transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.2s;
-  z-index: 1000;
+circle.style.strokeDasharray = `${circumference}`;
+circle.style.strokeDashoffset = `${circumference}`;
+
+function setProgress(percent) {
+  const offset = circumference - (percent / 100) * circumference;
+  circle.style.strokeDashoffset = offset;
 }
 
-.back-to-top-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
-}
-`;
+window.onscroll = function () {
+  const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+  const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (scrollTop / scrollHeight) * 100;
 
-document.head.appendChild(style);
+  setProgress(scrolled);
 
-// Show/hide button on scroll
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 300) {
-    backToTop.style.opacity = '1';
-    backToTop.style.transform = 'scale(1)';
+  if (scrollTop > 300) {
+    wrapper.classList.add("show");
   } else {
-    backToTop.style.opacity = '0';
-    backToTop.style.transform = 'scale(0.8)';
+    wrapper.classList.remove("show");
   }
-});
+};
 
-// Scroll to top on click
-backToTop.addEventListener('click', () => {
+btn.addEventListener("click", function () {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
