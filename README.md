@@ -1,1 +1,1 @@
-This site is hosted at rachittachamo.com.np
+This site is hosted at https://www.rachittachamo.com.np/
