@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rachit Tachamo - Web Designer Portfolio showcasing projects, skills, and contact information.">
     <title>Rachit's Portfolio</title>
     <link rel="stylesheet" href="portfolio.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -38,7 +39,7 @@
                 <div class="home-scroll">
                     <a href="#about" class="home-scroll-link"><i class='bx bx-up-arrow-alt' ></i>SCROLL</a>
                 </div>
-                <img src="IMG_6456_-removebga.png" alt="Rachit Tachamo" class="home-img">
+                <img src="assets/profile.png" alt="Rachit Tachamo" class="home-img">
             </div>
         </section>
     
@@ -48,7 +49,7 @@
 
             <div class="about-container bd-grid">
                 <div class="about-img">
-                    <img src="1644061215925.png" alt="Rachit Tachamo image">
+                    <img src="assets/about.png" alt="Rachit Tachamo image">
                 </div>
 
                 <div>
@@ -89,7 +90,7 @@
                 </div>
 
                 <div class="skills-img">
-                    <img src="htmlcssjs.png" alt="skills image">
+                    <img src="assets/htmlcssjs.png" alt="skills image">
                     
                 </div>
             </div>
@@ -100,10 +101,10 @@
 
             <div class="portfolio-container bd-grid">
                 <div class="portfolio-img">
-                    <img src="translatiion.JPG" alt="Translation Website">
+                    <img src="assets/translatiion.JPG" alt="Translation Website">
 
                     <div class="portfolio-link">
-                        <a href="https://translate.sthaarun.com.np/" class="BLOG" 
+                        <a href="https://translate.romankasichhwa.com.np/" class="BLOG" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     style="color: black;">TRANSLATION WEBSITE <center><h5> Click here to view </h5></center> </a>
@@ -111,7 +112,7 @@
                 </div>
 
                 <div class="portfolio-img">
-                    <img src="blograchit.JPG" alt="rachitblog">
+                    <img src="assets/blograchit.JPG" alt="rachitblog">
 
                    <div class="portfolio-link">
                      <a 
@@ -169,24 +170,18 @@
                 <div class="contact-info">
                     <h3 class="contact-subtitle">EMAIL</h3>
                     <span class="contact-text">tachamorachit7@gmail.com</span>
-
-                    <!-- <h3 class="contact-subtitle">PHONE</h3>
-                    <span class="contact-text">+20 999-999</span> -->
-
                     <h3 class="contact-subtitle">ADDRESS</h3>
                     <span class="contact-text">Kamalbinyak, Bhaktapur </span>
                 </div>
 
-                    <form class="contact-form" action="https://formspree.io/f/mzzdjjjq" method="POST">
-                 <div class="contact-inputs">
-    <input type="text" name="name" placeholder="Name" class="contact-input" required>
-    <input type="email" name="email" placeholder="Email" class="contact-input" required>
-  </div>
-
-  <textarea name="message" cols="0" rows="10" class="contact-input" placeholder="Your message..." required></textarea>
-
-  <input type="submit" value="Send" class="contact-button">
-</form>
+        <form id="contactForm" class="contact-form">
+            <div class="contact-inputs">
+            <input type="text" id="name" name="name" placeholder="Name" class="contact-input" required>
+            <input type="email" id="email" name="email" placeholder="Email" class="contact-input" required>
+                </div>
+        <textarea id="message" name="message" rows="10" class="contact-input" placeholder="Your message..." required></textarea>
+            <input type="submit" value="Send" class="contact-button">
+        </form>
 
             </div>
         </section>
