@@ -29,12 +29,13 @@ navLink.forEach(n => n.addEventListener('click', linkAction));
 
 // contact form 
 
-document.getElementById('contactForm').addEventListener('submit', function (event) {
-    event.preventDefault(); // Prevent default form behavior
+const contactForm = document.querySelector('.contact-form');
+contactForm.addEventListener('submit', event => {
+    event.preventDefault();
 
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const message = document.getElementById('message').value.trim();
+    const name = contactForm.querySelector('input[name="name"]').value.trim();
+  const email = contactForm.querySelector('input[name="email"]').value.trim();
+  const message = contactForm.querySelector('textarea[name="message"]').value.trim();
 
     if (!name || !email || !message) {
         alert('Please fill in all fields.');
@@ -46,22 +47,15 @@ document.getElementById('contactForm').addEventListener('submit', function (even
         return;
     }
 
-    //  Build custom mailto link
-    const subject = `New message from ${name}`;
-    const body = `Hello,\n\nYou have received a new message:\n\nName: ${name}\nEmail: ${email}\nMessage:\n${message}\n\nRegards,\nYour Portfolio Website`;
-
-    //  Encode for URL
-    const mailtoLink = `mailto:tachamorachit7@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-    //  Open email client (Outlook, etc.)
-    window.location.href = mailtoLink;
+    // Once validation passes, submit the form
+    contactForm.submit();
 });
 
+// Email Validation Function
 function validateEmail(email) {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
 }
-
 
 // Changing Active Menu section while scrolling
 
